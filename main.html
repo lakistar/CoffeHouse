@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/coffee-cup.png" type="image/png">
+  <title>CoffeeHouse</title>
+  <meta property="og:title" content="Твоя Кавʼярня">
+  <meta property="og:description" content="Найкраща кава у місті.">
+  <meta property="og:image" content="https://cdn-icons-png.flaticon.com/128/1047/1047462.png">
+  <meta property="og:type" content="website">
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <header id="hero" class="hero-section animate-on-scroll">
+    <div class="hero-content">
+      <h1>CoffeeHouse</h1>
+      <p>Свій ранок починай із нас</p>
+      <a href="#menu" class="btn" aria-label="Перейти до меню">Меню</a>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="about-section animate-on-scroll">
+    <div class="container">
+      <h2>Про нас</h2>
+      <p>Ми — сімейна кав’ярня з багаторічною історією. У нашому затишному куточку ви знайдете найкращу каву та атмосферу для роботи чи відпочинку.</p>
+      <div class="about-images">
+        <img src="https://www.interiorzine.com/wp-content/uploads/2017/09/gatto-bianco-ris-interior-design-8.jpg"
+             alt="Інтер'єр кав'ярні"
+             loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="menu-section animate-on-scroll">
+    <div class="container">
+      <h2>Меню</h2>
+      <div class="menu-filters">
+        <button class="filter-btn active" data-filter="all" aria-label="Показати усі">Усі</button>
+        <button class="filter-btn" data-filter="coffee" aria-label="Показати каву">Кава</button>
+        <button class="filter-btn" data-filter="tea" aria-label="Показати чай">Чай</button>
+        <button class="filter-btn" data-filter="dessert" aria-label="Показати десерти">Десерти</button>
+      </div>
+      <div class="menu-items">
+        <!-- Coffee Items -->
+        <div class="menu-item animate-on-scroll" data-category="coffee">
+          <h3>Еспресо</h3>
+          <p>Класичний міцний еспресо.</p>
+          <span class="price">₴40</span>
+        </div>
+        <div class="menu-item animate-on-scroll" data-category="coffee">
+          <h3>Капучино</h3>
+          <p>Пінистий капучино з нотками ванілі.</p>
+          <span class="price">₴55</span>
+        </div>
+        <div class="menu-item animate-on-scroll" data-category="coffee">
+          <h3>Лате</h3>
+          <p>М'який лате з теплим молоком.</p>
+          <span class="price">₴60</span>
+        </div>
+        <!-- Tea Items -->
+        <div class="menu-item animate-on-scroll" data-category="tea">
+          <h3>Зелений чай</h3>
+          <p>Органічний зелений чай з Японії.</p>
+          <span class="price">₴50</span>
+        </div>
+        <div class="menu-item animate-on-scroll" data-category="tea">
+          <h3>Чорний чай</h3>
+          <p>Класичний чорний чай з лимоном.</p>
+          <span class="price">₴45</span>
+        </div>
+        <div class="menu-item animate-on-scroll" data-category="tea">
+          <h3>Трав'яний чай</h3>
+          <p>Мікс меліси, м'яти та ромашки.</p>
+          <span class="price">₴50</span>
+        </div>
+        <!-- Dessert Items -->
+        <div class="menu-item animate-on-scroll" data-category="dessert">
+          <h3>Чізкейк</h3>
+          <p>Ніжний чізкейк з ягодами.</p>
+          <span class="price">₴70</span>
+        </div>
+        <div class="menu-item animate-on-scroll" data-category="dessert">
+          <h3>Шоколадний фондан</h3>
+          <p>Гарячий фондан з рідкою начинкою.</p>
+          <span class="price">₴80</span>
+        </div>
+        <div class="menu-item animate-on-scroll" data-category="dessert">
+          <h3>Брауні</h3>
+          <p>Шоколадні брауні з горіхами.</p>
+          <span class="price">₴65</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="gallery-section animate-on-scroll">
+    <div class="container">
+      <h2>Галерея</h2>
+      <div class="gallery-grid">
+        <a href="https://images.stockcake.com/public/0/9/d/09d8c571-99d9-4a0b-aad0-6fcac7d5e605_large/heart-latte-art-stockcake.jpg"
+           class="gallery-item animate-on-scroll">
+          <img src="https://images.stockcake.com/public/0/9/d/09d8c571-99d9-4a0b-aad0-6fcac7d5e605_large/heart-latte-art-stockcake.jpg"
+               alt="Лате арт у формі серця"
+               loading="lazy">
+        </a>
+        <a href="https://images.pexels.com/photos/30427464/pexels-photo-30427464/free-photo-of-delicious-pastries-with-coffee-on-wooden-table.jpeg"
+           class="gallery-item animate-on-scroll">
+          <img src="https://images.pexels.com/photos/30427464/pexels-photo-30427464/free-photo-of-delicious-pastries-with-coffee-on-wooden-table.jpeg"
+               alt="Паски та капучино на дерев'яному столі"
+               loading="lazy">
+        </a>
+        <a href="https://torgsoft.ua/assets/images/blog/1-barista-torgsoft.jpg"
+           class="gallery-item animate-on-scroll">
+          <img src="https://torgsoft.ua/assets/images/blog/1-barista-torgsoft.jpg"
+               alt="Приготування"
+               loading="lazy">
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials-section animate-on-scroll">
+    <div class="container">
+      <h2>Відгуки</h2>
+      <div class="testimonial-wrapper" aria-live="polite">
+
+        <div class="testimonial-item active">
+          <img src="https://images.squarespace-cdn.com/content/v1/5186f53fe4b0c64b3102c2e6/1482251586892-V91MVYMAT3XCZUG1RIXV/image-asset.jpeg" alt="Іван Іваненко">
+          <p>Найкраща кава в місті! Атмосфера завжди тепла та дружня.</p>
+          <h4>Іван Іваненко</h4>
+        </div>
+
+        <div class="testimonial-item">
+          <img src="https://img.freepik.com/premium-photo/blurred-background-vintage-filter-customer-coffee-shop-blur-background-with-bokeh_926199-332781.jpg" alt="Ольга Петрова">
+          <p>Чудове місце для роботи. Швидкий Wi-Fi і смачні десерти.</p>
+          <h4>Ольга Петрова</h4>
+        </div>
+
+        <div class="testimonial-item">
+          <img src="https://img.freepik.com/free-photo/happy-young-woman-enjoying-vacation_158595-4298.jpg" alt="Марія Коваль">
+          <p>Люблю їхній лате! Ідеальний початок дня.</p>
+          <h4>Марія Коваль</h4>
+        </div>
+
+      </div>
+
+      <div class="testimonial-controls">
+        <button id="prev" aria-label="Попередній відгук">&#10094;</button>
+        <button id="next" aria-label="Наступний відгук">&#10095;</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section animate-on-scroll">
+    <div class="container">
+      <h2>Контакти</h2>
+      <div class="contact-info">
+        <p><strong>Адреса:</strong> вул. Центральна, 10, Київ</p>
+        <p><strong>Телефон:</strong> <a href="tel:+380441234567">+380 44 123 4567</a></p>
+        <p><strong>Email:</strong> <a href="mailto:info@coffeehouse.com.ua">info@coffeehouse.com.ua</a></p>
+      </div>
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2539.1234567890123!2d30.52380041574377!3d50.450100279478095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cfaabc123456%3A0xabcdef1234567890!2z0KHQvtC70LjQu9GM0LrQsCwgMTAsINCa0LzQtdC90LjQutC4LCBLaeBqeE!5e0!3m2!1suk!2sua!4v1599999999999!5m2!1suk!2sua"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          aria-label="Карта CoffeeHouse">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feedback Form Section -->
+  <section id="feedback" class="feedback-section animate-on-scroll">
+    <div class="container">
+      <h2>Зворотній зв'язок</h2>
+      <form id="contact-form" novalidate>
+        <div class="form-group">
+          <label for="name">Ім'я</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Повідомлення</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn">Надіслати</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer animate-on-scroll">
+    <div class="container">
+      <div class="social-links">
+        <a href="#" aria-label="Facebook"><img src="https://img.icons8.com/m_rounded/512/facebook-new.png" alt="Facebook" loading="lazy"></a>
+        <a href="#" aria-label="Instagram"><img src="https://images.icon-icons.com/3833/PNG/512/logo_instagram_icon_234963.png" alt="Instagram" loading="lazy"></a>
+        <a href="#" aria-label="Twitter"><img src="https://cdn.freebiesupply.com/logos/large/2x/twitter-logo-black-and-white.png" alt="Twitter" loading="lazy"></a>
+      </div>
+      <p>© 2025 CoffeeHouse. Всі права захищені.</p>
+    </div>
+    <p class="disclaimer">
+      ⚠️ Увага: цей сайт — демонстраційний шаблон-портфоліо, він не є реальним вебсайтом і не має робочого функціоналу.
+    </p>
+
+  </footer>
+
+  <!-- JS -->
+  <script src="main.js" defer></script>
+</body>
+</html>

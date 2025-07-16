@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+:root {
+  --primary: #c49a6c;
+  --bg-dark: #121212;
+  --bg-card: #1e1e1e;
+  --text-light: #f4f4f4;
+  --transition: 0.3s ease;
+}
+/* Global */
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+.container { width:90%; max-width:1200px; margin:0 auto; padding:2rem 0; }
+/* Reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+/* Animations on scroll */
+.animate-on-scroll {
+  opacity:0; transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.animate-on-scroll.visible {
+  opacity:1; transform: translateY(0);
+}
+/* Buttons */
+.btn {
+  display:inline-block; padding:.75rem 1.5rem;
+  background: var(--primary); color: var(--bg-dark);
+  text-decoration:none; border-radius:2rem; border:none;
+  transition: transform var(--transition), box-shadow var(--transition);
+  will-change: transform; backface-visibility:hidden;
+  cursor:pointer;
+}
+.btn:hover { transform: translateY(-3px); box-shadow:0 8px 16px rgba(0,0,0,0.3); }
+.btn:focus { outline:2px solid var(--primary); outline-offset:4px; }
+/* Filter buttons */
+.filter-btn {
+  background:none; border:2px solid var(--primary);
+  color:var(--primary); padding:.5rem 1rem; margin:0 .5rem;
+  border-radius:2rem; transition: background var(--transition), color var(--transition);
+}
+.filter-btn.active,
+.filter-btn:hover {
+  background: var(--primary); color: var(--bg-dark);
+}
+.filter-btn:focus { outline:2px solid var(--primary); outline-offset:4px; }
+/* Hero */
+.hero-section {
+  position:relative; height:100vh; text-align:center;
+  background: url('https://i.pinimg.com/originals/e2/3a/cd/e23acdbe0af88b315d7e907bd0d7f791.jpg') center/cover no-repeat;
+  display:flex; align-items:center; justify-content:center;
+}
+.hero-section::after {
+  content:''; position:absolute; inset:0;
+  background:rgba(0,0,0,0.6);
+}
+.hero-content { position:relative; z-index:1; }
+.hero-content h1 { font-size: clamp(2.5rem,8vw,4rem); text-transform:uppercase; margin-bottom:1rem; }
+.hero-content p { font-size: clamp(1rem,3vw,1.5rem); margin-bottom:2rem; }
+/* About */
+.about-section { background:var(--bg-card); padding:4rem 0; text-align:center; }
+.about-section h2 { font-size:2.5rem; margin-bottom:1rem; }
+.about-images img { width:100%; max-width:600px; border-radius:.5rem; box-shadow:0 4px 12px rgba(0,0,0,0.6); transition:transform var(--transition); padding-top: 10px;}
+.about-images img:hover { transform:scale(1.02); }
+/* Menu */
+.menu-section { padding:4rem 0; }
+.menu-section h2 { text-align:center; font-size:2.5rem; margin-bottom:2rem; }
+.menu-filters { text-align:center; margin-bottom:2rem; }
+.menu-items {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem;
+}
+.menu-item {
+  background: var(--bg-card); padding:1.5rem; border-radius:.5rem; text-align:center;
+  box-shadow:0 4px 12px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default; will-change: transform;
+}
+.menu-item:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow:0 8px 20px rgba(0,0,0,0.8);
+}
+/* Gallery */
+.gallery-section { background:var(--bg-card); padding:4rem 0; }
+.gallery-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; }
+.gallery-item { overflow:hidden; height:200px; border-radius:.5rem; box-shadow:0 4px 12px rgba(0,0,0,0.6); }
+.gallery-item img { width:100%; height:100%; object-fit:cover; transition:transform var(--transition); }
+.gallery-item img:hover { transform:scale(1.05) rotate(1deg); }
+/* Lightbox */
+#lightbox-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.8); display:flex; align-items:center; justify-content:center; z-index:1000; }
+.lightbox-content { position:relative; max-width:90%; max-height:90%; }
+.lightbox-content img { width:100%; height:auto; border-radius:.5rem; }
+#lightbox-close { position:absolute; top:-10px; right:-10px; font-size:2rem; color:#fff; cursor:pointer; }
+#lightbox-close[role] { /* для aria */ }
+/* Testimonials */
+.testimonial-wrapper { position:relative; max-width:600px; margin:0 auto; min-height:300px; padding:2rem 4rem; background:var(--bg-card); border-radius:.5rem; box-shadow:0 4px 12px rgba(0,0,0,0.6); overflow:hidden; }
+.testimonial-item { opacity:0; transform:scale(0.98); transition:opacity 0.6s ease, transform 0.6s ease, max-height 0.6s ease; max-height:0; overflow:hidden; text-align:center; }
+.testimonial-item.active { opacity:1; transform:scale(1); max-height:1000px; }
+.testimonial-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap; /* Щоб на малих екранах кнопки не зникали */
+}
+.testimonial-controls button {
+  background: #c49a6c;
+  color: #121212;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.testimonial-controls button:hover {
+  background: #e0b888;
+  transform: scale(1.1);
+}
+.testimonial-controls button:focus {
+  outline: 2px solid #c49a6c;
+  outline-offset: 4px;
+}
+.testimonial-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: none; /* Прибрати темний фон */
+  box-shadow: none; /* Прибрати тінь */
+  padding: 0; /* Прибрати зайвий відступ */
+}
+.testimonial-item {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.testimonial-item.active {
+  opacity: 1;
+  position: relative;
+}
+.testimonial-item img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.testimonial-item p {
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+.testimonial-item h4 {
+  font-weight: bold;
+  color: #c49a6c;
+}
+/* Contact */
+.contact-section { background:var(--bg-card); padding:4rem 0; text-align:center; }
+.contact-section h2 { font-size:2.5rem; margin-bottom:2rem; }
+.contact-info p { margin-bottom:.5rem; }
+.map iframe { width:100%; height:400px; border:none; border-radius:.5rem; box-shadow:0 4px 12px rgba(0,0,0,0.6); }
+/* Feedback */
+.feedback-section { padding:4rem 0; }
+.feedback-section h2 { text-align:center; font-size:2.5rem; margin-bottom:2rem; }
+.form-group { margin-bottom:1rem; }
+.form-group label { display:block; margin-bottom:.5rem; }
+.form-group input, .form-group textarea { width:100%; padding:.75rem; border:none; border-radius:.5rem; background:#2a2a2a; color:var(--text-light); }
+.error { color:#e57373; margin-top:.5rem; font-size:.9rem; }
+/* Footer */
+.footer { background:var(--bg-card); text-align:center; padding:2rem 0; }
+.social-links a { margin:0 .5rem; }
+.social-links img { width:35px; height:35px; transition:transform var(--transition); }
+.social-links a:hover img { transform:scale(1.2) rotate(5deg); }
+.footer .disclaimer {
+  color: #c49a6c;
+  font-size: 1rem;
+  font-style: italic;
+  margin-top: 1.5rem;
+  border-top: 1px solid #c49a6c;
+  padding-top: 1rem;
+  text-align: center;
+  user-select: none;
+  opacity: 0.8;
+}
+/* Responsive */
+@media (max-width:768px) {
+  .menu-items { grid-template-columns:1fr; }
+  .hero-content h1 { font-size:3rem; }
+  .map iframe { height:300px; }
+}
+/* 2. Лежачі планшети та великі телефони (992px – 1199px) */
+@media (max-width: 1199px) {
+  .container {
+    width: 95%;
+  }
+  .hero-content h1 {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+  }
+  .menu-items {
+    gap: 1.5rem;
+  }
+  .gallery-item {
+    height: 180px;
+  }
+}
+/* 3. Портретні планшети та менші ноутбуки (768px – 991px) */
+@media (max-width: 991px) {
+  .menu-items {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .testimonial-wrapper {
+    padding: 1rem 2rem;
+  }
+  .testimonial-controls {
+    gap: 1rem;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  .gallery-item {
+    height: 150px;
+  }
+}
+/* 4. Великі телефони в портреті (576px – 767px) */
+@media (max-width: 767px) {
+  .hero-content h1 {
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
+  }
+  .hero-content p {
+    font-size: clamp(0.9rem, 4vw, 1.2rem);
+  }
+  .menu-items {
+    grid-template-columns: 1fr;
+  }
+  .menu-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  .filter-btn {
+    flex: 1 1 45%;
+  }
+  .gallery-item {
+    height: 120px;
+  }
+}
+/* 5. Смартфони (до 575px) */
+@media (max-width: 575px) {
+  .container {
+    padding: 1rem 0;
+  }
+  .hero-content {
+    padding: 0 1rem;
+  }
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  .about-images img {
+    max-width: 100%;
+  }
+  .menu-section h2,
+  .gallery-section h2,
+  .testimonials-section h2 {
+    font-size: 1.8rem;
+  }
+  .menu-filters {
+    flex-direction: column;
+  }
+  .filter-btn {
+    width: 100%;
+    margin: 0.25rem 0;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-item {
+    height: 100px;
+  }
+  .contact-info p {
+    font-size: 0.9rem;
+  }
+  .map iframe {
+    height: 200px;
+  }
+  .form-group input,
+  .form-group textarea {
+    font-size: 0.9rem;
+  }
+}
